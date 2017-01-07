@@ -12,7 +12,7 @@
 
 @interface RMTelepresencePeerRomoCell ()
 
-@property (nonatomic, strong) RMContact *data;
+@property (nonatomic, strong) RMContact *mydata;
 
 @end
 
@@ -29,7 +29,7 @@
 
 - (NSString *)labelText
 {
-    return [NSString stringWithFormat:NSLocalizedString(@"Remote: %@", @"Remote: %@"), self.data.romoName];
+    return [NSString stringWithFormat:NSLocalizedString(@"Remote: %@", @"Remote: %@"), self.mydata.romoName];
 }
 
 - (UIButton *)deleteButton

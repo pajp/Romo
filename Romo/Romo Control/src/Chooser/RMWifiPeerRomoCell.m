@@ -13,7 +13,7 @@
 
 @interface RMWifiPeerRomoCell ()
 
-@property (nonatomic, strong) RMPeer *data;
+@property (nonatomic, strong) RMPeer *mydata;
 
 @end
 
@@ -21,7 +21,7 @@
 
 - (NSString *)labelText
 {
-    return self.data.name;
+    return self.mydata.name;
 }
 
 @end

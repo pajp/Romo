@@ -9,7 +9,7 @@
 
 @interface RMRomotePhotoVC () <UIScrollViewDelegate>
 
-@property (nonatomic, strong) UIScrollView *view;
+@property (nonatomic, strong) UIScrollView *myview;
 @property (nonatomic, strong) NSMutableDictionary *photoViews;
 @property (nonatomic, strong, readwrite) UIButton *dismissButton;
 
@@ -19,15 +19,15 @@
 
 - (void)loadView
 {
-    self.view = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.view.delegate = self;
-    self.view.bounces = YES;
-    self.view.alwaysBounceHorizontal = YES;
-    self.view.showsHorizontalScrollIndicator = NO;
-    self.view.backgroundColor = [UIColor blackColor];
-    self.view.pagingEnabled = YES;
+    self.myview = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.myview.delegate = self;
+    self.myview.bounces = YES;
+    self.myview.alwaysBounceHorizontal = YES;
+    self.myview.showsHorizontalScrollIndicator = NO;
+    self.myview.backgroundColor = [UIColor blackColor];
+    self.myview.pagingEnabled = YES;
     
-    [self.view addSubview:self.dismissButton];
+    [self.myview addSubview:self.dismissButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,9 +45,9 @@
     
     [self.photoViews removeAllObjects];
     
-    self.view.contentSize = CGSizeMake(photos.count * self.view.width, self.view.height);
-    self.view.contentOffset = CGPointMake(self.view.contentSize.width - self.view.width, 0);
-    [self scrollViewDidScroll:self.view];
+    self.myview.contentSize = CGSizeMake(photos.count * self.myview.width, self.myview.height);
+    self.myview.contentOffset = CGPointMake(self.myview.contentSize.width - self.myview.width, 0);
+    [self scrollViewDidScroll:self.myview];
 }
 
 - (UIButton *)dismissButton
@@ -76,7 +76,7 @@
         [scrollView insertSubview:rightPhotoView atIndex:0];
     }
     
-    CGRect visibleRect = CGRectMake(x, 0, self.view.width, self.view.height);
+    CGRect visibleRect = CGRectMake(x, 0, self.myview.width, self.myview.height);
     for (NSNumber *photoIndex in self.photoViews) {
         UIImageView *photoView = self.photoViews[photoIndex];
         if (!CGRectIntersectsRect(photoView.frame, visibleRect)) {
@@ -101,7 +101,7 @@
 {
     UIImageView *photoView = self.photoViews[@(index)];
     if (!photoView && index >= 0 && index < self.photos.count) {
-        photoView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        photoView = [[UIImageView alloc] initWithFrame:self.myview.bounds];
         photoView.contentMode = UIViewContentModeScaleAspectFit;
         photoView.image = self.photos[index];
         photoView.backgroundColor = [UIColor blackColor];
