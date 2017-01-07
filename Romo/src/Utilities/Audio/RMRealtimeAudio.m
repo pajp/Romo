@@ -990,10 +990,6 @@ void checkStatus(OSStatus status)
             return @"kAudioUnitErr_FailedInitialization";
         case kAudioUnitErr_TooManyFramesToProcess:
             return @"kAudioUnitErr_TooManyFramesToProcess";
-        case kAudioUnitErr_IllegalInstrument:
-            return @"kAudioUnitErr_IllegalInstrument";
-        case kAudioUnitErr_InstrumentTypeNotFound:
-            return @"kAudioUnitErr_InstrumentTypeNotFound";
         case kAudioUnitErr_InvalidFile:
             return @"kAudioUnitErr_InvalidFile";
         case kAudioUnitErr_UnknownFileType:
